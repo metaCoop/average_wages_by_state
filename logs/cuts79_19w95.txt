@@ -1,0 +1,202 @@
+----------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  R:\new_R_drive_structure\users\dcooper\Stata\average_wages_by_state\logs\cuts79_19w95.txt
+  log type:  text
+ opened on:  27 Jan 2020, 16:11:06
+
+. set more off
+
+. numlabel, add
+
+. 
+. clear all
+
+. 
+. load_epiextracts, begin(1979m1) end(2019m12) sample(org) ///
+>         keep(year wage orgwgt statefips statecensus)
+Processing CPS ORG, 1979m1-1979m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1980m1-1980m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1981m1-1981m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1982m1-1982m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1983m1-1983m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1984m1-1984m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1985m1-1985m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1986m1-1986m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1987m1-1987m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1988m1-1988m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1989m1-1989m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1990m1-1990m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1991m1-1991m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1992m1-1992m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1993m1-1993m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statefips statecensus wage
+Processing CPS ORG, 1994m1-1994m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 1995m1-1995m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 1996m1-1996m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 1997m1-1997m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 1998m1-1998m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 1999m1-1999m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2000m1-2000m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2001m1-2001m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2002m1-2002m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2003m1-2003m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2004m1-2004m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2005m1-2005m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2006m1-2006m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2007m1-2007m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2008m1-2008m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2009m1-2009m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2010m1-2010m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2011m1-2011m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2012m1-2012m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2013m1-2013m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2014m1-2014m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2015m1-2015m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2016m1-2016m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2017m1-2017m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2018m1-2018m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+Processing CPS ORG, 2019m1-2019m12: year month minsamp finalwgt cmpwgt basicwgt orgwgt hhwgt famwgt statecensus statefips wage
+
+Loading CPS ORG, 1979m1-1979m12
+Loading CPS ORG, 1980m1-1980m12
+Loading CPS ORG, 1981m1-1981m12
+Loading CPS ORG, 1982m1-1982m12
+Loading CPS ORG, 1983m1-1983m12
+Loading CPS ORG, 1984m1-1984m12
+Loading CPS ORG, 1985m1-1985m12
+Loading CPS ORG, 1986m1-1986m12
+Loading CPS ORG, 1987m1-1987m12
+Loading CPS ORG, 1988m1-1988m12
+Loading CPS ORG, 1989m1-1989m12
+Loading CPS ORG, 1990m1-1990m12
+Loading CPS ORG, 1991m1-1991m12
+Loading CPS ORG, 1992m1-1992m12
+Loading CPS ORG, 1993m1-1993m12
+Loading CPS ORG, 1994m1-1994m12
+Loading CPS ORG, 1995m1-1995m12
+Loading CPS ORG, 1996m1-1996m12
+Loading CPS ORG, 1997m1-1997m12
+Loading CPS ORG, 1998m1-1998m12
+Loading CPS ORG, 1999m1-1999m12
+Loading CPS ORG, 2000m1-2000m12
+Loading CPS ORG, 2001m1-2001m12
+Loading CPS ORG, 2002m1-2002m12
+Loading CPS ORG, 2003m1-2003m12
+Loading CPS ORG, 2004m1-2004m12
+Loading CPS ORG, 2005m1-2005m12
+Loading CPS ORG, 2006m1-2006m12
+Loading CPS ORG, 2007m1-2007m12
+Loading CPS ORG, 2008m1-2008m12
+Loading CPS ORG, 2009m1-2009m12
+Loading CPS ORG, 2010m1-2010m12
+Loading CPS ORG, 2011m1-2011m12
+Loading CPS ORG, 2012m1-2012m12
+Loading CPS ORG, 2013m1-2013m12
+Loading CPS ORG, 2014m1-2014m12
+Loading CPS ORG, 2015m1-2015m12
+Loading CPS ORG, 2016m1-2016m12
+Loading CPS ORG, 2017m1-2017m12
+Loading CPS ORG, 2018m1-2018m12
+Loading CPS ORG, 2019m1-2019m12
+
+Using EPI CPS ORG Extracts, Version 1.0, located in W:/data/cps/org/epi/
+
+.         
+.         keep if wage > 0 & wage != .
+(6,098,658 observations deleted)
+
+. 
+. sort year
+
+. 
+. tempfile orgdata
+
+. save `orgdata'
+file C:\Users\dcooper\AppData\Local\Temp\4\ST_00000001.tmp saved
+
+. 
+. /*Calculate national percentiles*/
+. binipolate wage if wage > 0 & wage ~= . [pw=orgwgt], binsize(0.25) ///
+>  percentiles(10 20 30 40 50 60 70 80 90 95) by(year)
+Calculating binned percentiles...
+
+.  
+.  rename wage_binned p_binned
+
+.  reshape wide p*_binned, i(year) j(percentile)
+(note: j = 10 20 30 40 50 60 70 80 90 95)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                      410   ->      41
+Number of variables                   3   ->      11
+j variable (10 values)       percentile   ->   (dropped)
+xij variables:
+                               p_binned   ->   p_binned10 p_binned20 ... p_binned95
+-----------------------------------------------------------------------------
+
+.  
+.  rename p_binned* us_p*_binned
+
+.  
+.  keep year us_p*_binned
+
+.  
+.  tempfile uscuts
+
+.  save `uscuts'
+file C:\Users\dcooper\AppData\Local\Temp\4\ST_00000002.tmp saved
+
+.   
+.  /*Calculate state level percentiles*/
+.  use `orgdata'
+(EPI CPS ORG Extracts, Version 1.0)
+
+.  sort year statecensus
+
+.  
+.  binipolate wage if wage > 0 & wage ~= . [pw=orgwgt], binsize(0.25) ///
+>  percentiles(10 20 30 40 50 60 70 80 90 95) by(year statecensus)
+Calculating binned percentiles...
+
+.  
+.   rename wage_binned p_binned
+
+.  reshape wide p*_binned, i(year statecensus) j(percentile)
+(note: j = 10 20 30 40 50 60 70 80 90 95)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                    20910   ->    2091
+Number of variables                   4   ->      12
+j variable (10 values)       percentile   ->   (dropped)
+xij variables:
+                               p_binned   ->   p_binned10 p_binned20 ... p_binned95
+-----------------------------------------------------------------------------
+
+.  
+.  rename p_binned* st_p*_binned
+
+.  
+.  keep year statecensus st_p*_binned
+
+.  
+.  tempfile stcuts
+
+.  save `stcuts'
+file C:\Users\dcooper\AppData\Local\Temp\4\ST_00000003.tmp saved
+
+.  
+. append using `uscuts'
+
+.  
+.  export excel using ${exdata}, sheet("Cuts") ///        
+> firstrow(var) sheetreplace
+file R:\new_R_drive_structure\users\dcooper\Stata\average_wages_by_state\output\cuts79_19w95.xlsx saved
+
+. 
+.  log close
+      name:  <unnamed>
+       log:  R:\new_R_drive_structure\users\dcooper\Stata\average_wages_by_state\logs\cuts79_19w95.txt
+  log type:  text
+ closed on:  27 Jan 2020, 16:21:35
+----------------------------------------------------------------------------------------------------------------------------------

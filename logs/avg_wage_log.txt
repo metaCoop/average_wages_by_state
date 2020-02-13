@@ -1,0 +1,154 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  R:\new_R_drive_structure\users\dcooper\avg_wage_log.txt
+  log type:  text
+ opened on:  23 Jan 2020, 11:37:22
+
+. set more off
+
+. numlabel, add
+
+. 
+. clear
+
+. 
+. load_epiextracts, begin(2017m1) end(2019m12) sample(org)
+Processing CPS ORG, 2017m1-2017m12: _all
+Processing CPS ORG, 2018m1-2018m12: _all
+Processing CPS ORG, 2019m1-2019m12: _all
+
+Loading CPS ORG, 2017m1-2017m12
+Loading CPS ORG, 2018m1-2018m12
+Loading CPS ORG, 2019m1-2019m12
+
+Using EPI CPS ORG Extracts, Version 1.0, located in W:/data/cps/org/epi/
+
+. 
+. sort year statecensus
+
+. 
+. tempfile orgdata
+
+. save `orgdata'
+file C:\Users\dcooper\AppData\Local\Temp\12\ST_00000001.tmp saved
+
+. 
+. binipolate wage if wage > 0 & wage ~= . [pw=orgwgt], binsize(0.25) ///
+>  percentiles(10 20 30 40 50 60 70 80 90) by(year statecensus)
+Calculating classical percentiles...
+Calculating binned percentiles...
+
+.  
+.  keep year statecensus p*_binned
+
+.  
+.  merge 1:m year statecensus using `orgdata'
+(label statecensus already defined)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                           899,934  (_merge==3)
+    -----------------------------------------
+
+. 
+.  gen wagerange=.
+(899,934 missing values generated)
+
+.  replace wagerange=1 if wage<p20_binned
+(92,097 real changes made)
+
+.  replace wagerange=2 if p20_binned<=wage & wage<=p80_binned
+(285,369 real changes made)
+
+.  replace wagerange=3 if wage>p80_binned
+(522,468 real changes made)
+
+.  
+.  save `orgdata', replace
+file C:\Users\dcooper\AppData\Local\Temp\12\ST_00000001.tmp saved
+
+.  
+.  sort year statecensus 
+
+.  collapse (mean) bottom_wage=wage if wagerange==1 [pw=orgwgt], /// 
+>         by (year statecensus)
+
+. 
+.  tempfile bottom
+
+.  save `bottom'
+file C:\Users\dcooper\AppData\Local\Temp\12\ST_00000002.tmp saved
+
+. 
+.  clear
+
+.  use `orgdata'
+
+.  
+.  collapse (mean) mid_wage=wage if wagerange==2 [pw=orgwgt], /// 
+>         by (year statecensus)
+
+. 
+.  tempfile middle
+
+.  save `middle'
+file C:\Users\dcooper\AppData\Local\Temp\12\ST_00000003.tmp saved
+
+.  
+.  clear
+
+.  use `orgdata'
+
+.  
+.  collapse (mean) top_wage=wage if wagerange==1 [pw=orgwgt], /// 
+>         by (year statecensus)
+
+. 
+.  tempfile top
+
+.  save `top'
+file C:\Users\dcooper\AppData\Local\Temp\12\ST_00000004.tmp saved
+
+.  
+.  merge 1:1 year statecensus using `middle'
+(label statecensus already defined)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               153  (_merge==3)
+    -----------------------------------------
+
+.  
+.  drop _merge
+
+.  
+.  merge 1:1 year statecensus using `bottom'
+(label statecensus already defined)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               153  (_merge==3)
+    -----------------------------------------
+
+.  
+.  
+. 
+end of do-file
+
+. export excel using "avgs_17_19_byState.xlsx"
+file avgs_17_19_byState.xlsx saved
+
+. pwd
+R:\new_R_drive_structure\users\dcooper
+
+. do "C:\Users\dcooper\AppData\Local\Temp\12\STD00000000.tmp"
+
+.  log close
+      name:  <unnamed>
+       log:  R:\new_R_drive_structure\users\dcooper\avg_wage_log.txt
+  log type:  text
+ closed on:  23 Jan 2020, 11:45:04
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
